@@ -11,6 +11,5 @@ number = float(user_input)
 result = square(number)
 
 # Print the result
-print(f"The square of {number} is {result}.
-thx 4 using me")
-
+print(f"The square of {number} is {result}.")
+print(f"thx 4 using.")
