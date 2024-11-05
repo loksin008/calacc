@@ -1,0 +1,14 @@
+def square(number):
+    return number ** 2  # Calculates the square of the number
+
+# Get user input
+user_input = input("Enter a number: ")
+
+# Convert the input to a float (or int, depending on your preference)
+number = float(user_input)
+
+# Call the function and store the result
+result = square(number)
+
+# Print the result
+print(f"The square of {number} is {result}.")
