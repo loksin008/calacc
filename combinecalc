@@ -1,0 +1,194 @@
+import math
+
+# Memory variable
+memory = 0
+
+# Simple Calculator Functions
+def simple_calculator():
+    print("\nSimple Calculator")
+    while True:
+        print("\nOptions:")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        print("5. Return to Main Menu")
+        
+        choice = input("Select an option (1-5): ")
+
+        if choice in ['1', '2', '3', '4']:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+
+            if choice == '1':
+                print(f"Result: {add(num1, num2)}")
+            elif choice == '2':
+                print(f"Result: {subtract(num1, num2)}")
+            elif choice == '3':
+                print(f"Result: {multiply(num1, num2)}")
+            elif choice == '4':
+                print(f"Result: {divide(num1, num2)}")
+
+        elif choice == '5':
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+# Scientific Calculator Functions
+def scientific_calculator():
+    print("\nScientific Calculator")
+    while True:
+        print("\nOptions:")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        print("5. Power (x^y)")
+        print("6. Square Root")
+        print("7. Sine")
+        print("8. Cosine")
+        print("9. Tangent")
+        print("10. Natural Log")
+        print("11. Log Base 10")
+        print("12. Return to Main Menu")
+
+        choice = input("Select an option (1-12): ")
+
+        if choice in ['1', '2', '3', '4', '5']:
+            num1 = float(input("Enter first number: "))
+            if choice == '5':
+                num2 = float(input("Enter exponent: "))
+                print(f"Result: {power(num1, num2)}")
+            else:
+                num2 = float(input("Enter second number: "))
+                if choice == '1':
+                    print(f"Result: {add(num1, num2)}")
+                elif choice == '2':
+                    print(f"Result: {subtract(num1, num2)}")
+                elif choice == '3':
+                    print(f"Result: {multiply(num1, num2)}")
+                elif choice == '4':
+                    print(f"Result: {divide(num1, num2)}")
+
+        elif choice == '6':
+            num = float(input("Enter number: "))
+            print(f"Result: {square_root(num)}")
+
+        elif choice in ['7', '8', '9']:
+            angle = float(input("Enter angle in degrees: "))
+            if choice == '7':
+                print(f"Result: {sine(angle)}")
+            elif choice == '8':
+                print(f"Result: {cosine(angle)}")
+            elif choice == '9':
+                print(f"Result: {tangent(angle)}")
+
+        elif choice in ['10', '11']:
+            num = float(input("Enter number: "))
+            if choice == '10':
+                print(f"Result: {natural_log(num)}")
+            elif choice == '11':
+                print(f"Result: {log_base_10(num)}")
+
+        elif choice == '12':
+            break
+
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+# Memory Functions
+def store_memory(value):
+    global memory
+    memory = value
+    print(f"Stored {value} in memory.")
+
+def recall_memory():
+    return memory
+
+def clear_memory():
+    global memory
+    memory = 0
+    print("Memory cleared.")
+
+# Main Menu
+def main_menu():
+    while True:
+        print("\nCombined Calculator")
+        print("Options:")
+        print("1. Simple Calculator")
+        print("2. Scientific Calculator")
+        print("3. Memory Options")
+        print("4. Exit")
+
+        choice = input("Select an option (1-4): ")
+
+        if choice == '1':
+            simple_calculator()
+        elif choice == '2':
+            scientific_calculator()
+        elif choice == '3':
+            while True:
+                print("\nMemory Options:")
+                print("1. Store a value in memory")
+                print("2. Recall memory")
+                print("3. Clear memory")
+                print("4. Return to Main Menu")
+
+                mem_choice = input("Select an option (1-4): ")
+
+                if mem_choice == '1':
+                    value = float(input("Enter a number to store in memory: "))
+                    store_memory(value)
+                elif mem_choice == '2':
+                    print(f"Recalled from memory: {recall_memory()}")
+                elif mem_choice == '3':
+                    clear_memory()
+                elif mem_choice == '4':
+                    break
+                else:
+                    print("Invalid choice. Please select a valid option.")
+        
+        elif choice == '4':
+            print("Exiting the calculator.")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+# Calculator Operations
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return x / y
+
+def power(x, y):
+    return x ** y
+
+def square_root(x):
+    return math.sqrt(x)
+
+def sine(x):
+    return math.sin(math.radians(x))
+
+def cosine(x):
+    return math.cos(math.radians(x))
+
+def tangent(x):
+    return math.tan(math.radians(x))
+
+def natural_log(x):
+    return math.log(x)
+
+def log_base_10(x):
+    return math.log10(x)
+
+# Run the main menu
+main_menu()
