@@ -12,4 +12,3 @@ result = square(number)
 
 # Print the result
 print(f"The square of {number} is {result}.")
-print(f"thx 4 using.")
