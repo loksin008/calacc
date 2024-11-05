@@ -12,3 +12,4 @@ result = square(number)
 
 # Print the result
 print(f"The square of {number} is {result}.")
+welcome 2 me
